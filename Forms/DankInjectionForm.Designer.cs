@@ -103,7 +103,7 @@
             this.buttonInitiateInjection.UseVisualStyleBackColor = false;
             this.buttonInitiateInjection.Click += new System.EventHandler(this.ButtonInitiateInjection_Click);
             // 
-            // contextImageOptions
+            // contextDeleteImage
             // 
             this.contextDeleteImage.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.deleteToolStripMenuItem1});
@@ -211,7 +211,7 @@
             // chkEraseHeaders
             // 
             this.chkEraseHeaders.AutoSize = true;
-            this.chkEraseHeaders.Location = new System.Drawing.Point(11, 49);
+            this.chkEraseHeaders.Location = new System.Drawing.Point(36, 50);
             this.chkEraseHeaders.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.chkEraseHeaders.Name = "chkEraseHeaders";
             this.chkEraseHeaders.Size = new System.Drawing.Size(117, 23);
@@ -223,7 +223,7 @@
             // chkElevateHandle
             // 
             this.chkElevateHandle.AutoSize = true;
-            this.chkElevateHandle.Location = new System.Drawing.Point(-5, 28);
+            this.chkElevateHandle.Location = new System.Drawing.Point(36, 29);
             this.chkElevateHandle.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.chkElevateHandle.Name = "chkElevateHandle";
             this.chkElevateHandle.Size = new System.Drawing.Size(120, 23);
@@ -272,7 +272,7 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "wav did 9/11";
             // 
-            // InjectionForm
+            // DankInjectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -295,7 +295,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.MaximizeBox = false;
-            this.Name = "InjectionForm";
+            this.Name = "DankInjectionForm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;

@@ -106,8 +106,6 @@
             // chkEraseHeaders
             // 
             this.chkEraseHeaders.AutoSize = true;
-            this.chkEraseHeaders.Checked = true;
-            this.chkEraseHeaders.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkEraseHeaders.Location = new System.Drawing.Point(11, 57);
             this.chkEraseHeaders.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.chkEraseHeaders.Name = "chkEraseHeaders";
@@ -251,7 +249,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "InjectionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Loadlibrayy - by Striekcarl\\^genesis^ - Unknowncheats";
+            this.Text = "Loadlibrayy - by unsanitized.io - Unknowncheats exclusive release";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InjectionForm_FormClosed);
             this.Load += new System.EventHandler(this.InjectionForm_Load);
             this.groupBox3.ResumeLayout(false);

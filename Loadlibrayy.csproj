@@ -61,7 +61,7 @@
   <ItemGroup>
     <Compile Include="Driver Exploit\CPUZ.cs" />
     <Compile Include="Driver Exploit\CPUZShellcode.cs" />
-    <Compile Include="Forms\ElevateHandle.cs" />
+    <Compile Include="Driver Exploit\ElevateHandle.cs" />
     <Compile Include="Extensions\ProcessExtensions.cs" />
     <Compile Include="Forms\InjectionForm.cs">
       <SubType>Form</SubType>

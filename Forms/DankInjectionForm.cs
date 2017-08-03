@@ -33,7 +33,7 @@ namespace Loadlibrayy
             g_PhotonSoundPlayer = new SoundPlayer(Resources.photonsound);
 
             // [12:33] wav: Your theme song needs work...
-            // new SoundPlayer(Resources.Hey_Everybody__Im_looking_at_gay_porno_).PlayLooping();
+            new SoundPlayer(Resources.Hey_Everybody__Im_looking_at_gay_porno_).PlayLooping();
 
             // DEFAULT VALUES
             comboInjectionMethod.SelectedIndex = 0;
@@ -61,6 +61,16 @@ namespace Loadlibrayy
                 this.label1.Font = Environment.TickCount % 2 == 0 ? wingdingsFont : comicsansFont;
                 this.label1.ForeColor = Color.FromArgb(rand.Next(256), rand.Next(256), rand.Next(256));
                 this.label1.BackColor = Color.FromArgb(rand.Next(256), rand.Next(256), rand.Next(256));
+                
+                this.Location = new Point(this.Location.X + rand.Next(10) - 4, this.Location.Y + rand.Next(10) - 4);
+                buttonInitiateInjection.Location = new Point(buttonInitiateInjection.Location.X + rand.Next(3) - 1, buttonInitiateInjection.Location.Y + rand.Next(3) - 1);
+                buttonClearImages.Location = new Point(buttonClearImages.Location.X + rand.Next(3) - 1, buttonClearImages.Location.Y + rand.Next(3) - 1);
+                buttonAddImage.Location = new Point(buttonAddImage.Location.X + rand.Next(3) - 1, buttonAddImage.Location.Y + rand.Next(3) - 1);
+                buttonSelectProcess.Location = new Point(buttonSelectProcess.Location.X + rand.Next(3) - 1, buttonSelectProcess.Location.Y + rand.Next(3) - 1);
+                chkElevateHandle.Location = new Point(chkElevateHandle.Location.X + rand.Next(3) - 1, chkElevateHandle.Location.Y + rand.Next(3) - 1);
+                chkEraseHeaders.Location = new Point(chkEraseHeaders.Location.X + rand.Next(3) - 1, chkEraseHeaders.Location.Y + rand.Next(3) - 1);
+                comboExecutionMethod.Location = new Point(comboExecutionMethod.Location.X + rand.Next(3) - 1, comboExecutionMethod.Location.Y + rand.Next(3) - 1);
+                comboInjectionMethod.Location = new Point(comboInjectionMethod.Location.X + rand.Next(3) - 1, comboInjectionMethod.Location.Y + rand.Next(3) - 1);
             };
             timer.Start();
         }

@@ -77,9 +77,12 @@ namespace Loadlibrayy.Injection
                     var remoteShellcodePointer = TargetProcess.AllocateAndWrite(shellcode, NT.AllocationType.Commit | NT.AllocationType.Reserve, NT.MemoryProtection.ExecuteReadWrite);
 
                     // GET THREAD HANDLE WITH PROPER ACCESS RIGHTS
-                    var usableThreads = TargetProcess.Threads.Cast<ProcessThread>().Where(x => x.ThreadState == System.Diagnostics.ThreadState.Wait && x.WaitReason == ThreadWaitReason.UserRequest);
+                    // I FILTER THE THREADS LIKE THIS BECAUSE FROM
+                    // EXPERIENCE SOME THREADS WITH TimeCritical PRIORITY
+                    // ETC WILL CAUSE SOME WONKY CRASHES
+                    var usableThreads = TargetProcess.Threads.Cast<ProcessThread>().Where(
+                        x => x.ThreadState == System.Diagnostics.ThreadState.Wait && x.WaitReason == ThreadWaitReason.UserRequest);
                     ProcessThread targetThread = usableThreads.ElementAt(NTM.RandomEngine.Next(usableThreads.Count()));
-                    //ProcessThread targetThread = TargetProcess.Threads.Cast<ProcessThread>().Where(x => x.WaitReason == ThreadWaitReason.UserRequest).First();//
                     var threadHandle = targetThread.GetNativeHandle((NT.ThreadAccess)0x1FFFFF);
 
                     // ELEVATE HANDLE VIA DRIVER EXPLOIT
