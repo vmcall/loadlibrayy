@@ -14,4 +14,4 @@ x64 PE injector with kernel handle elevation and thread hijacking capabilities t
 + JD96 (Ch40zz) for helping me with an assembly issue
 
 # Screenshot
-![Menu](http://i.imgur.com/Q5M2KWl.png)
+![Menu](http://i.imgur.com/qS1iPT7.png)
