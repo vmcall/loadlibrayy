@@ -59,6 +59,9 @@ namespace Loadlibrayy.Natives
                NT.MemoryProtection Win32Protect);
 
         [DllImport("ntdll.dll", SetLastError = true)]
+        public static extern int NtQueryInformationProcess(IntPtr processHandle, int processInformationClass, void* processInformation, int processInformationLength, IntPtr returnLength);
+
+        [DllImport("ntdll.dll", SetLastError = true)]
         public static extern uint NtUnmapViewOfSection(IntPtr ProcessHandle, ulong BaseAddress);
 
         [DllImport("kernel32.dll")]
@@ -110,6 +113,9 @@ namespace Loadlibrayy.Natives
         [DllImport("kernel32.dll", SetLastError = true, ExactSpelling = true)]
         public static extern bool VirtualFreeEx(IntPtr hProcess, ulong lpAddress, int dwSize, AllocationType dwFreeType);
 
+        [DllImport("kernel32.dll")]
+        public static extern bool ReadProcessMemory(IntPtr hProcess, ulong lpBaseAddress, byte[] lpBuffer, int dwSize, int lpNumberOfBytesRead);
+        
         [DllImport("kernel32.dll", SetLastError = true)]
         public static extern bool WriteProcessMemory(IntPtr hProcess, ulong lpBaseAddress, byte[] lpBuffer, uint nSize, ulong lpNumberOfBytesWritten);
 
@@ -136,6 +142,90 @@ namespace Loadlibrayy.Natives
         #endregion
 
         #region Structs
+        [StructLayout(LayoutKind.Sequential, Pack = 1)]
+        public struct PROCESS_BASIC_INFORMATION
+        {
+            public ulong ExitStatus;
+            public ulong PebBaseAddress;
+            public ulong AffinityMask;
+            public ulong BasePriority;
+            public ulong UniqueProcessId;
+            public ulong InheritedFromUniqueProcessId;
+
+            public int Size
+            {
+                get { return Marshal.SizeOf<PROCESS_BASIC_INFORMATION>(); }
+            }
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct _PEB
+        {
+            public fixed byte Reserved1[2];
+            public byte BeingDebugged;
+            public fixed byte Reserved2[1];
+            public fixed byte Reserved3[2 * sizeof(ulong)];
+            public ulong Ldr;
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct _PEB_LDR_DATA
+        {
+            public uint Length;
+            public byte Initialized;
+            public ulong SsHandle;
+            public _LIST_ENTRY InLoadOrderModuleList;
+            public _LIST_ENTRY InMemoryOrderModuleList;
+            public _LIST_ENTRY InInitializationOrderModuleList;
+            public ulong EntryInProgress;
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct UNICODE_STRING
+        {
+            public ushort Length;
+            public ushort MaximumLength;
+            public ulong Buffer;
+
+            public UNICODE_STRING(string s)
+            {
+                Length = (ushort)(s.Length * 2);
+                MaximumLength = (ushort)(Length + 2);
+                Buffer = 0;
+            }
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct _LDR_DATA_TABLE_ENTRY
+        {
+            public _LIST_ENTRY InLoadOrderLinks;
+            public _LIST_ENTRY InMemoryOrderLinks;
+            public _LIST_ENTRY InInitializationOrderLinks;
+            public ulong DllBase;
+            public ulong EntryPoint;
+            public ulong SizeOfImage;
+            public UNICODE_STRING FullDllName;
+            public UNICODE_STRING BaseDllName;
+            public uint Flags;
+            public ushort LoadCount;
+            public ushort TlsIndex;
+            public ulong Reserved4;
+            public ulong CheckSum;
+            public uint TimeDateStamp;
+            public ulong EntryPointActivationContext;
+            public ulong PatchInformation;
+            public _LIST_ENTRY ForwarderLinks;
+            public _LIST_ENTRY ServiceTagLinks;
+            public _LIST_ENTRY StaticLinks;
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct _LIST_ENTRY
+        {
+            public ulong Flink;
+            public ulong Blink;
+        }
+
         [StructLayout(LayoutKind.Sequential)]
         public struct IMAGE_BASE_RELOCATION
         {

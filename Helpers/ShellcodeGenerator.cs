@@ -36,7 +36,7 @@ namespace Loadlibrayy.Helpers
             return shellcode;
         }
 
-        public static byte[] CallDllMain(ulong remoteImage, ulong entrypointPointer, bool hijackSafe)
+        public static byte[] CallDllMain(ulong remoteImage, ulong entrypoint, bool hijackSafe)
         {
             byte[] shellcode;
 
@@ -61,7 +61,7 @@ namespace Loadlibrayy.Helpers
                 fixed (byte* shellcodePointer = shellcode)
                 {
                     *(ulong*)(shellcodePointer + 19) = remoteImage;
-                    *(ulong*)(shellcodePointer + 39) = entrypointPointer;
+                    *(ulong*)(shellcodePointer + 39) = entrypoint;
                 }
             }
             else
@@ -83,7 +83,7 @@ namespace Loadlibrayy.Helpers
                 fixed (byte* shellcodePointer = shellcode)
                 {
                     *(ulong*)(shellcodePointer + 6) = remoteImage;
-                    *(ulong*)(shellcodePointer + 26) = entrypointPointer;
+                    *(ulong*)(shellcodePointer + 26) = entrypoint;
                 }
             }
 

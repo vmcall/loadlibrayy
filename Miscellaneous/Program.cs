@@ -19,7 +19,7 @@ namespace Loadlibrayy
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DankInjectionForm());
+            Application.Run(new /*Dank*/NewInjectionForm());
         }
     }
 }

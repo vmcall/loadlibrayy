@@ -13,12 +13,19 @@ namespace Loadlibrayy.Injection
         HijackThread
     }
     
+    public struct InjectionOptions
+    {
+        public bool ElevateHandle;
+        public bool EraseHeaders;
+        public bool CreateLoaderReference;
+        public string LoaderImagePath;
+    }
+    
     interface IInjectionMethod
     {
         ExecutionType TypeOfExecution { get; }
         Process TargetProcess { get; }
-        bool ShouldElevateHandle { get; }
-        bool ShouldEraseHeaders { get; }
+        InjectionOptions Options { get; }
 
         bool InjectImage(string imagePath);
         bool InjectImage(byte[] rawImage);

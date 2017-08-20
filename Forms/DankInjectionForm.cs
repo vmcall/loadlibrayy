@@ -113,6 +113,13 @@ namespace Loadlibrayy
                 ElevateHandle.Elevate((ulong)g_SelectedProcess.Handle, 0x1fffff);
             }
 
+            InjectionOptions options = new InjectionOptions()
+            {
+                ElevateHandle = chkElevateHandle.Checked,
+                EraseHeaders = chkEraseHeaders.Checked,
+                CreateLoaderReference = false
+            };
+
             ExecutionType executionType = 0;
             switch (comboExecutionMethod.SelectedIndex)
             {
@@ -129,11 +136,11 @@ namespace Loadlibrayy
             switch (comboInjectionMethod.SelectedIndex)
             {
                 case 0: // LOAD LIBRARY
-                    injectionMethod = new LoadLibraryInjection(g_SelectedProcess, executionType, chkElevateHandle.Checked, chkEraseHeaders.Checked);
+                    injectionMethod = new LoadLibraryInjection(g_SelectedProcess, executionType, options);
                     break;
 
                 case 1: // MANUAL MAP
-                    injectionMethod = new ManualMapInjection(g_SelectedProcess, executionType, chkElevateHandle.Checked, chkEraseHeaders.Checked);
+                    injectionMethod = new ManualMapInjection(g_SelectedProcess, executionType, options);
                     break;
             }
             

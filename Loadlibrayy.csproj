@@ -48,6 +48,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.3.0\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,11 +66,11 @@
     <Compile Include="Driver Exploit\CPUZShellcode.cs" />
     <Compile Include="Driver Exploit\ElevateHandle.cs" />
     <Compile Include="Extensions\ProcessExtensions.cs" />
-    <Compile Include="Forms\InjectionForm.cs">
+    <Compile Include="Forms\NewInjectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\InjectionForm.Designer.cs">
-      <DependentUpon>InjectionForm.cs</DependentUpon>
+    <Compile Include="Forms\NewInjectionForm.Designer.cs">
+      <DependentUpon>NewInjectionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\TaskList.cs">
       <SubType>Form</SubType>
@@ -93,8 +96,8 @@
     <EmbeddedResource Include="Forms\DankInjectionForm.resx">
       <DependentUpon>DankInjectionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\InjectionForm.resx">
-      <DependentUpon>InjectionForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\NewInjectionForm.resx">
+      <DependentUpon>NewInjectionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TaskList.resx">
       <DependentUpon>TaskList.cs</DependentUpon>
@@ -110,6 +113,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Miscellaneous\app.manifest" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
