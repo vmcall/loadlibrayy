@@ -9,7 +9,7 @@ x64 PE injector with kernel handle elevation and thread hijacking capabilities t
 
 
 ## Thanks
-+ ~~MarkHC~~ (he decided to trade my dignity for a watermelon, so he's not getting jack shit)
++ MarkHC (fucking faggot)
 + DarthTon for his BlackBone project, helped me do a ton to fix ghetto shit i was doing
 + JD96 (Ch40zz) for helping me with an assembly issue
 
